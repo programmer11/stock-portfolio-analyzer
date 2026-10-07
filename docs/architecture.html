@@ -58,10 +58,13 @@
   th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--line); }
   th { color: var(--muted); font-weight: 600; }
   ul.rules { padding-left: 20px; }
+  a { color: var(--accent); }
+  .crumb { margin: 0 0 12px; font-size: 14px; }
 </style>
 </head>
 <body>
 <main>
+  <p class="crumb"><a href="./">← Documentation</a></p>
   <h1>Stock Portfolio Analyzer: Architecture</h1>
   <p class="lede">A Streamlit app (<code>app.py</code>) that only draws screens, on top of a <code>portfolio/</code> package that does all the calculations. It runs locally with uv and Python 3.12.</p>
 

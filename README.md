@@ -3,6 +3,9 @@
 A Streamlit app that analyzes a stock portfolio from its transaction history.
 Market prices come from yfinance.
 
+📖 **Documentation:** https://programmer11.github.io/stock-portfolio-analyzer/
+(see also the [architecture diagram](https://programmer11.github.io/stock-portfolio-analyzer/architecture.html))
+
 ## Run
 
 ```bash
@@ -31,6 +34,7 @@ portfolio/
   prices.py          yfinance calls, cached
   performance.py     lifetime metrics, XIRR, daily value series
 tests/               tests for the math, no internet needed
+docs/                documentation site (GitHub Pages)
 ```
 
 Saved transactions live in `data/transactions.csv` (git-ignored).

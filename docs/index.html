@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio Analyzer Docs</title>
+<meta name="description" content="Documentation for the Stock Portfolio Analyzer, a Streamlit app that analyzes a stock portfolio from its transaction history.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1f2328;
+    --muted: #5b636e;
+    --line: #d4d8dd;
+    --panel: #f6f7f9;
+    --accent: #c2410c;
+    --code-bg: #eef0f3;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #15181c;
+      --fg: #e6e8eb;
+      --muted: #9aa3ad;
+      --line: #343a42;
+      --panel: #1d2126;
+      --accent: #fb923c;
+      --code-bg: #262b31;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #15181c;
+    --fg: #e6e8eb;
+    --muted: #9aa3ad;
+    --line: #343a42;
+    --panel: #1d2126;
+    --accent: #fb923c;
+    --code-bg: #262b31;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 15px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  main { max-width: 860px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 28px; margin: 0 0 4px; }
+  h2 { font-size: 20px; margin: 44px 0 12px; padding-top: 8px; border-top: 1px solid var(--line); }
+  h3 { font-size: 16px; margin: 24px 0 8px; }
+  .lede { color: var(--muted); margin: 0 0 20px; font-size: 16px; }
+  a { color: var(--accent); }
+  code { font: 13px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--code-bg); padding: 1px 5px; border-radius: 4px; }
+  pre { background: var(--code-bg); padding: 12px 14px; border-radius: 8px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  nav.toc { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 18px; }
+  nav.toc ol { margin: 6px 0; padding-left: 20px; }
+  .links { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 24px; }
+  .links a { text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; font-size: 14px; }
+  .table-wrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+  th { color: var(--muted); font-weight: 600; }
+  li { margin: 4px 0; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Stock Portfolio Analyzer</h1>
+  <p class="lede">A Streamlit app that turns your buy and sell history into current holdings, allocation, profit, XIRR and a value-over-time chart. Market prices come from Yahoo Finance via yfinance.</p>
+
+  <div class="links">
+    <a href="https://github.com/programmer11/stock-portfolio-analyzer">Source on GitHub</a>
+    <a href="architecture.html">Architecture diagram</a>
+    <a href="https://github.com/programmer11/stock-portfolio-analyzer/blob/main/sample_data.csv">Sample CSV</a>
+  </div>
+
+  <nav class="toc" aria-label="Contents">
+    <strong>Contents</strong>
+    <ol>
+      <li><a href="#quick-start">Quick start</a></li>
+      <li><a href="#csv-format">CSV format</a></li>
+      <li><a href="#tabs">Using the app</a></li>
+      <li><a href="#metrics">How the numbers are calculated</a></li>
+      <li><a href="#prices">Prices</a></li>
+      <li><a href="#project">Project structure</a></li>
+      <li><a href="#testing">Testing</a></li>
+      <li><a href="#troubleshooting">Troubleshooting</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="quick-start">1. Quick start</h2>
+  <p>You need <a href="https://docs.astral.sh/uv/">uv</a>. It installs Python 3.12 and the app's dependencies for you.</p>
+<pre><code>git clone https://github.com/programmer11/stock-portfolio-analyzer.git
+cd stock-portfolio-analyzer
+uv sync                          # create .venv and install dependencies
+uv run streamlit run app.py      # open http://localhost:8501</code></pre>
+  <p>In the app, open <strong>Input Transactions</strong> and click <strong>Load sample data</strong> to try it with the bundled example.</p>
+
+  <h2 id="csv-format">2. CSV format</h2>
+  <p>One row per trade. Column names are not case-sensitive.</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Column</th><th>Meaning</th><th>Also accepted as</th></tr></thead>
+    <tbody>
+      <tr><td><code>ticker</code></td><td>Stock symbol, e.g. <code>AAPL</code>. Add the exchange suffix for non-US stocks, e.g. <code>RELIANCE.NS</code></td><td><code>symbol</code>, <code>stock</code>, <code>scrip</code></td></tr>
+      <tr><td><code>date</code></td><td>Trade date, e.g. <code>2024-01-03</code></td><td><code>trade date</code>, <code>transaction date</code></td></tr>
+      <tr><td><code>transaction_type</code></td><td><code>BUY</code> or <code>SELL</code> (<code>B</code>/<code>S</code> also work)</td><td><code>type</code>, <code>side</code>, <code>action</code></td></tr>
+      <tr><td><code>quantity</code></td><td>Number of shares, greater than 0</td><td><code>qty</code>, <code>shares</code>, <code>units</code></td></tr>
+      <tr><td><code>price</code></td><td>Price per share</td><td><code>rate</code>, <code>unit price</code></td></tr>
+    </tbody>
+  </table>
+  </div>
+<pre><code>ticker,date,transaction_type,quantity,price
+AAPL,2024-01-03,BUY,10,185.07
+MSFT,2024-04-03,BUY,10,420.3
+AAPL,2024-07-03,SELL,7,215.8</code></pre>
+  <p>If any row is invalid, nothing is imported and the app lists the CSV line numbers to fix.</p>
+
+  <h2 id="tabs">3. Using the app</h2>
+  <h3>Tab 1: Input Transactions</h3>
+  <ul>
+    <li><strong>CSV Upload</strong>: upload a file and check the preview. Then click <strong>Import</strong>, ticking "Replace existing transactions" first if you want to start over.</li>
+    <li><strong>Manual Upload</strong>: add a single trade with the form.</li>
+    <li><strong>All transactions</strong>: edit or delete rows, then click <strong>Save edits</strong>. <strong>Clear all</strong> removes everything.</li>
+  </ul>
+  <p>Transactions are saved to <code>data/transactions.csv</code> on your computer, so they're still there after a restart. That file is never committed to Git.</p>
+
+  <h3>Tab 2: Current Portfolio</h3>
+  <ul>
+    <li>Summary figures: Current Value, Cost Basis, Profit &amp; Gains (unrealized) and Realized Profit.</li>
+    <li><strong>Portfolio Allocation</strong>: a pie chart of market value by stock.</li>
+    <li><strong>Stock Price Breakdown</strong>: ticker symbol, current quantity, average cost basis, current price, profit and gains (amount and %), realized profit, total cost, market value, allocation and price source.</li>
+  </ul>
+
+  <h3>Tab 3: Historical Performance</h3>
+  <ul>
+    <li>Total Lifetime Investment, Total Sales, Lifetime Proceeds, Current Portfolio Value, Total Return and XIRR.</li>
+    <li><strong>Portfolio Value Over Time</strong>: daily market value of your holdings, compared with net cash invested.</li>
+  </ul>
+
+  <h2 id="metrics">4. How the numbers are calculated</h2>
+  <p>Trades are replayed in date order using the <strong>average-cost method</strong>.</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Metric</th><th>Formula</th></tr></thead>
+    <tbody>
+      <tr><td>Average cost basis</td><td>Total cost of shares held ÷ shares held. A sale removes cost at the average price.</td></tr>
+      <tr><td>Profit &amp; Gains (unrealized)</td><td>Shares held × current price − cost of shares held</td></tr>
+      <tr><td>Realized profit</td><td>(Sale price − average cost) × shares sold, added up over every sale</td></tr>
+      <tr><td>Total Lifetime Investment</td><td>Sum of quantity × price over all BUYs</td></tr>
+      <tr><td>Total Sales</td><td>Sum of quantity × price over all SELLs</td></tr>
+      <tr><td>Lifetime Proceeds</td><td>Total Sales + Current Portfolio Value</td></tr>
+      <tr><td>Total Return</td><td>Lifetime Proceeds − Total Lifetime Investment (equal to realized + unrealized profit)</td></tr>
+      <tr><td>XIRR</td><td>Annualised rate that makes the net present value of all dated cash flows zero. BUYs are outflows; SELLs and today's portfolio value are inflows.</td></tr>
+      <tr><td>Net invested (chart)</td><td>Running total of BUY cash − SELL cash</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>A sale larger than the shares you hold is reduced to the shares held.</p>
+
+  <h2 id="prices">5. Prices</h2>
+  <ul>
+    <li>Current prices are the latest daily close from Yahoo Finance, cached for 15 minutes. Price history for the chart is cached for 60 minutes.</li>
+    <li>If a stock can't be priced, the app uses its <strong>last transaction price</strong>, and the table shows <em>Last trade</em> as the source.</li>
+    <li>In the sidebar you can turn off live prices for fully offline use, or click <strong>Refresh prices</strong> to fetch them again.</li>
+  </ul>
+
+  <h2 id="project">6. Project structure</h2>
+<pre><code>app.py               the three tabs (screen layout only)
+portfolio/
+  loader.py          read and check the CSV, save/load transactions
+  holdings.py        replay trades -&gt; positions, average cost, realized profit
+  prices.py          yfinance calls, cached
+  performance.py     lifetime metrics, XIRR, daily value series
+tests/               tests for the math, no internet needed
+docs/                this documentation (GitHub Pages)</code></pre>
+  <p>See the <a href="architecture.html">architecture diagram</a> for how data flows between these modules.</p>
+
+  <h2 id="testing">7. Testing</h2>
+<pre><code>uv run pytest</code></pre>
+  <p>The tests check the calculations against figures worked out by hand from <code>sample_data.csv</code>. They need no internet. For example, the sample's holdings come out as 10 AAPL at 182.39, 9 MSFT at 415.495 and 4 TSLA at 196.865.</p>
+
+  <h2 id="troubleshooting">8. Troubleshooting</h2>
+  <ul>
+    <li><strong><code>uv: command not found</code></strong>: install uv, or add its install folder to your <code>PATH</code> and open a new terminal.</li>
+    <li><strong>A price shows "Last trade"</strong>: check the ticker. Non-US stocks need an exchange suffix such as <code>.NS</code>, <code>.BO</code> or <code>.L</code>.</li>
+    <li><strong>Upload rejected</strong>: fix the CSV lines listed in the error. Dates must be valid, the type must be BUY or SELL, and quantity and price must be positive numbers.</li>
+    <li><strong>Port 8501 in use</strong>: another copy of the app is running. Streamlit picks the next free port (8502, and so on).</li>
+  </ul>
+</main>
+</body>
+</html>
