@@ -1,0 +1,39 @@
+{
+  "fps": 30,
+  "totalFrames": 3155,
+  "durationSeconds": 105.16666666666667,
+  "scenes": [
+    {
+      "component": "Welcome",
+      "frames": 334
+    },
+    {
+      "component": "Import",
+      "frames": 417
+    },
+    {
+      "component": "Manual",
+      "frames": 365
+    },
+    {
+      "component": "Holdings",
+      "frames": 450
+    },
+    {
+      "component": "Breakdown",
+      "frames": 429
+    },
+    {
+      "component": "Returns",
+      "frames": 391
+    },
+    {
+      "component": "Trend",
+      "frames": 387
+    },
+    {
+      "component": "Close",
+      "frames": 382
+    }
+  ]
+}

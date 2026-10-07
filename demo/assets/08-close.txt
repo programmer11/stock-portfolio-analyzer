@@ -1,0 +1,1 @@
+That is Stock Portfolio Analyzer: import your trades, understand your holdings, and track performance in one place. Try the sample portfolio to explore the app before adding your own transactions.

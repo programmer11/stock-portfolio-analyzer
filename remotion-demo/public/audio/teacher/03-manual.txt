@@ -1,0 +1,1 @@
+You can also add a trade by hand. Start with the date and transaction type. Then enter the stock symbol, quantity, and price per share. Take a moment to check those details. When you're ready, choose Add transaction to save it.

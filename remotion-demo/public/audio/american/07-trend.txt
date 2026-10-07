@@ -1,0 +1,1 @@
+Finally, compare portfolio value with net money invested over time. With live pricing off, this chart uses transaction prices. Enable Yahoo Finance pricing for market data when available.

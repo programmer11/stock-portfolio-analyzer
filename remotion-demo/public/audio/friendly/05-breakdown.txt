@@ -1,0 +1,1 @@
+Want to zoom in? The stock breakdown puts each holding side by side: shares, average cost, price, gains, and allocation. One handy detail: this demo uses last transaction prices, with live pricing switched off. Check the Price Source column to see exactly where each price came from.

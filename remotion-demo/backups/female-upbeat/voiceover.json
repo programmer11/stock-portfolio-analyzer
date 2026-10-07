@@ -1,0 +1,58 @@
+{
+  "voice": "Samantha",
+  "rate": 160,
+  "pauseSeconds": 0.9,
+  "scenes": [
+    {
+      "component": "Welcome",
+      "asset": "01-input",
+      "text": "Welcome! Let's explore Stock Portfolio Analyzer together. We'll start with your trades, then discover what you own and how your portfolio has performed. Follow along with the sample data, and let's bring your portfolio into focus!"
+    },
+    {
+      "component": "Import",
+      "asset": "02-loaded",
+      "text": "First, open Input Transactions. Your CSV needs five columns: ticker, date, buy or sell, quantity, and price. Ready to try it out? Choose Load sample data! That gives us trades in Apple, Microsoft, and Tesla to explore together."
+    },
+    {
+      "component": "Manual",
+      "asset": "03-manual",
+      "text": "You can add a trade by hand, too! Start with the date and transaction type. Then enter the stock symbol, quantity, and price per share. Check those details, and when you're ready, choose Add transaction. Just like that, your trade is saved!"
+    },
+    {
+      "component": "Holdings",
+      "asset": "04-portfolio",
+      "text": "Now, let's explore Current Portfolio! Current value shows what your remaining shares are worth. Cost basis shows what those shares cost. Unrealized gains reveal the difference, while realized profit comes from completed sales. And below, the pie chart brings each stock's share of the portfolio into view!"
+    },
+    {
+      "component": "Breakdown",
+      "asset": "05-breakdown",
+      "text": "Let's take a closer look at the stock breakdown! Compare each holding's quantity, average cost, price, and gains. Here's a useful detail: the Price Source column. Live pricing is off in this example, so we're using each stock's last transaction price."
+    },
+    {
+      "component": "Returns",
+      "asset": "06-performance",
+      "text": "Next up, Historical Performance! Here, your total investment, sales, and remaining portfolio value come together. Total return shows the overall result. You'll also see X I R R: an annualized return that accounts for when you bought and sold. Now you're seeing the bigger picture!"
+    },
+    {
+      "component": "Trend",
+      "asset": "07-trend",
+      "text": "Let's explore the chart! One line shows portfolio value. The other shows the net money you've invested. Together, they help you follow your portfolio's progress over time. We're using transaction prices here. Enable Yahoo Finance pricing to explore market data when it's available."
+    },
+    {
+      "component": "Close",
+      "asset": "08-close",
+      "text": "And that's the workflow! Add your trades, explore your holdings, and follow your performance. Start with the sample portfolio, and discover what each tab can show you. When you're ready, bring in your own transaction history. Let's put your portfolio story together!"
+    }
+  ],
+  "audioDirectory": "female-upbeat",
+  "fixedSceneFrames": {
+    "Welcome": 494,
+    "Import": 669,
+    "Manual": 570,
+    "Holdings": 684,
+    "Breakdown": 630,
+    "Returns": 654,
+    "Trend": 667,
+    "Close": 572
+  }
+}

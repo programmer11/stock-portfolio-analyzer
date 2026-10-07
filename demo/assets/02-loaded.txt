@@ -1,0 +1,1 @@
+Start in Input Transactions. Upload a CSV with the ticker, date, buy or sell type, quantity, and price. Here, we load the included sample data: trades in Apple, Microsoft, and Tesla.

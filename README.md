@@ -14,6 +14,22 @@ uv run streamlit run app.py      # start the app at http://localhost:8501
 uv run pytest                    # run the tests (no internet needed)
 ```
 
+## Video demo
+
+Watch the [American-voice walkthrough](demo/stock-portfolio-american.mp4) (1 minute 45 seconds),
+or open the [video player with chapters](demo/american-demo.html).
+The demo uses sample transactions and last-trade prices with live pricing off.
+
+The editable [Remotion project](remotion-demo/README.md) includes the selected narration
+and saved voice alternatives. To preview or regenerate the video:
+
+```bash
+cd remotion-demo
+npm ci
+npm run dev -- --no-open
+npx remotion render src/index.ts StockPortfolioDemo ../demo/stock-portfolio-american.mp4
+```
+
 ## Tabs
 
 1. **Input Transactions**: upload a CSV (see `sample_data.csv`) or add trades manually.

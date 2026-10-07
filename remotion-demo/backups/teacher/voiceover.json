@@ -1,0 +1,47 @@
+{
+  "voice": "Alex",
+  "rate": 160,
+  "pauseSeconds": 0.9,
+  "scenes": [
+    {
+      "component": "Welcome",
+      "asset": "01-input",
+      "text": "Welcome. Let's walk through Stock Portfolio Analyzer together. We'll start with your trades, then look at what you own and how your portfolio has performed. You can follow along with the sample data as we go."
+    },
+    {
+      "component": "Import",
+      "asset": "02-loaded",
+      "text": "First, open Input Transactions. Your CSV needs five columns: ticker, date, buy or sell, quantity, and price. If you're just getting started, choose Load sample data. That gives us a few trades in Apple, Microsoft, and Tesla to work with."
+    },
+    {
+      "component": "Manual",
+      "asset": "03-manual",
+      "text": "You can also add a trade by hand. Start with the date and transaction type. Then enter the stock symbol, quantity, and price per share. Take a moment to check those details. When you're ready, choose Add transaction to save it."
+    },
+    {
+      "component": "Holdings",
+      "asset": "04-portfolio",
+      "text": "Now, let's open Current Portfolio. Current value tells us what the remaining shares are worth. Cost basis tells us what those shares cost. Unrealized gains show the difference, while realized profit comes from completed sales. Below, the pie chart shows each stock's share of the portfolio."
+    },
+    {
+      "component": "Breakdown",
+      "asset": "05-breakdown",
+      "text": "For a closer look, use the stock breakdown. You can compare each holding's quantity, average cost, price, and gains. Notice the Price Source column. In this example, live pricing is off, so we're using the last transaction price for each stock."
+    },
+    {
+      "component": "Returns",
+      "asset": "06-performance",
+      "text": "Next, open Historical Performance. This brings together your total investment, sales, and remaining portfolio value. Total return shows the overall result. You'll also see X I R R. That's an annualized return that takes into account when you bought and sold."
+    },
+    {
+      "component": "Trend",
+      "asset": "07-trend",
+      "text": "Let's look at the chart. One line shows portfolio value. The other shows the net money you've invested. Comparing them helps you follow the portfolio over time. Here, we're using transaction prices. You can enable Yahoo Finance pricing to use market data when available."
+    },
+    {
+      "component": "Close",
+      "asset": "08-close",
+      "text": "That's the basic workflow. Add your trades, review your holdings, and explore your performance. Start with the sample portfolio, and take your time with each tab. Once you're comfortable, you can bring in your own transaction history."
+    }
+  ]
+}

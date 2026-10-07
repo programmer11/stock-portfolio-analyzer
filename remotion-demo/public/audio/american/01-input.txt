@@ -1,0 +1,1 @@
+Welcome to Stock Portfolio Analyzer. Turn your transaction history into a clear picture of what you own, how your investments are allocated, and how your portfolio has performed.

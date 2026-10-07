@@ -1,0 +1,1 @@
+For a closer look, use the stock breakdown. You can compare each holding's quantity, average cost, price, and gains. Notice the Price Source column. In this example, live pricing is off, so we're using the last transaction price for each stock.

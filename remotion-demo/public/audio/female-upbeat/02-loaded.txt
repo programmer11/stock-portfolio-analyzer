@@ -1,0 +1,1 @@
+First, open Input Transactions. Your CSV needs five columns: ticker, date, buy or sell, quantity, and price. Ready to try it out? Choose Load sample data! That gives us trades in Apple, Microsoft, and Tesla to explore together.

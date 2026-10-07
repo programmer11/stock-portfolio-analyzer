@@ -1,0 +1,1 @@
+Here's your portfolio's story on a chart! Follow portfolio value alongside the net money you've invested over time. In this demo, the chart uses transaction prices. Switch on Yahoo Finance pricing to use market data when it's available.

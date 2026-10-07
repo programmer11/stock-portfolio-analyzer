@@ -1,0 +1,1 @@
+Now, let's open Current Portfolio. Current value tells us what the remaining shares are worth. Cost basis tells us what those shares cost. Unrealized gains show the difference, while realized profit comes from completed sales. Below, the pie chart shows each stock's share of the portfolio.

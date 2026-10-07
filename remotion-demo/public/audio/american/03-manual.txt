@@ -1,0 +1,1 @@
+You can also enter an individual trade. Choose the date and transaction type, then enter the symbol, quantity, and price per share. Review the details, then use Add transaction to save it.

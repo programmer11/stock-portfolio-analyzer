@@ -1,0 +1,8 @@
+file '01-input.mp4'
+file '02-loaded.mp4'
+file '03-manual.mp4'
+file '04-portfolio.mp4'
+file '05-breakdown.mp4'
+file '06-performance.mp4'
+file '07-trend.mp4'
+file '08-close.mp4'

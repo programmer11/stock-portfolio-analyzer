@@ -1,0 +1,1 @@
+Prefer to add a trade yourself? You've got it. Pick the date and whether you bought or sold, then pop in the symbol, quantity, and price per share. Give everything a quick look, and hit Add transaction when you're ready to save.

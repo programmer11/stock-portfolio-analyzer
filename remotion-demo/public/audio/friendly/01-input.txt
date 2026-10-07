@@ -1,0 +1,1 @@
+Hey there! Welcome to Stock Portfolio Analyzer. Got a bunch of trades and wondering how they all fit together? Let's turn that transaction history into a clear view of what you own, where your money sits, and how your portfolio is doing.

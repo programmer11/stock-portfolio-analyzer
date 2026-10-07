@@ -1,0 +1,23 @@
+Your trades. Your portfolio. One clear view.
+Welcome to Stock Portfolio Analyzer. Turn your transaction history into a clear picture of what you own, how your investments are allocated, and how your portfolio has performed.
+
+01  Import your transaction history
+Start in Input Transactions. Upload a CSV with the ticker, date, buy or sell type, quantity, and price. Here, we load the included sample data: trades in Apple, Microsoft, and Tesla.
+
+02  Add trades manually
+You can also enter an individual trade. Choose the date and transaction type, then enter the symbol, quantity, and price per share. Review the details, then use Add transaction to save it.
+
+03  See what you own today
+Next, open Current Portfolio. The summary shows the value of your remaining shares, their cost basis, unrealized gains, and profit already realized through sales. The allocation chart shows how much each stock contributes.
+
+04  Understand each holding
+The stock breakdown lets you compare quantities, average cost, prices, gains, and allocation. This demo uses last transaction prices, with live pricing switched off. The Price Source column makes that clear.
+
+05  Check your lifetime returns
+Historical Performance brings the full journey together: total investment, sales, remaining value, and total return. X I R R is the annualized return that accounts for the timing of each buy and sell.
+
+06  Follow value over time
+Finally, compare portfolio value with net money invested over time. With live pricing off, this chart uses transaction prices. Enable Yahoo Finance pricing for market data when available.
+
+Import trades → Explore holdings → Track performance
+That is Stock Portfolio Analyzer: import your trades, understand your holdings, and track performance in one place. Try the sample portfolio to explore the app before adding your own transactions.

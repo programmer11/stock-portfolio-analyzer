@@ -1,0 +1,40 @@
+from pathlib import Path
+from playwright.sync_api import sync_playwright
+
+ROOT = Path(__file__).resolve().parent
+with sync_playwright() as p:
+    browser = p.chromium.launch(executable_path='/Applications/Google Chrome 2.app/Contents/MacOS/Google Chrome', headless=True)
+    page = browser.new_page(viewport={'width':1600, 'height':900}, device_scale_factor=1, color_scheme='light')
+    page.set_default_timeout(20000)
+    page.goto('http://127.0.0.1:8502', wait_until='domcontentloaded')
+    page.get_by_role('button', name='Load sample data').wait_for()
+    assert not page.get_by_role('switch').is_checked(), 'Demo must use last-trade prices'
+    page.wait_for_timeout(1200)
+    def shot(name):
+        page.wait_for_timeout(1000)
+        page.screenshot(path=str(ROOT / 'assets' / f'{name}.png'))
+        print(name, flush=True)
+    shot('01-input')
+    page.get_by_role('button', name='Load sample data').click()
+    page.get_by_role('tabpanel', name='Input Transactions').get_by_test_id('stDataFrame').wait_for()
+    shot('02-loaded')
+    page.get_by_role('textbox', name='Symbol', exact=True).fill('AAPL')
+    page.get_by_role('spinbutton', name='Quantity', exact=True).fill('2')
+    page.get_by_role('spinbutton', name='Price per share').fill('190.27')
+    shot('03-manual')
+    page.get_by_role('tab', name='Current Portfolio', exact=True).click()
+    page.get_by_text('Stock Price Breakdown',exact=True).wait_for()
+    shot('04-portfolio')
+    page.get_by_role('tabpanel', name='Current Portfolio').get_by_test_id('stDataFrame').scroll_into_view_if_needed()
+    shot('05-breakdown')
+    page.get_by_role('tab', name='Historical Performance', exact=True).click()
+    page.get_by_text('Total Lifetime Investment',exact=True).wait_for()
+    page.locator('[data-testid="stMain"]').evaluate('(el) => el.scrollTo(0,0)')
+    shot('06-performance')
+    page.get_by_role('tabpanel', name='Historical Performance').get_by_test_id('stPlotlyChart').scroll_into_view_if_needed()
+    shot('07-trend')
+    page.get_by_role('tab', name='Current Portfolio',exact=True).click()
+    page.locator('[data-testid="stMain"]').evaluate('(el) => el.scrollTo(0,0)')
+    shot('08-close')
+    print(page.locator('body').inner_text(),flush=True)
+    browser.close()

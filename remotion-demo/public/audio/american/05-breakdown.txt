@@ -1,0 +1,1 @@
+The stock breakdown lets you compare quantities, average cost, prices, gains, and allocation. This demo uses last transaction prices, with live pricing switched off. The Price Source column makes that clear.

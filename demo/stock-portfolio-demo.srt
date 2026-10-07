@@ -1,0 +1,83 @@
+1
+00:00:00,000 --> 00:00:02,059
+Welcome to Stock Portfolio Analyzer.
+
+2
+00:00:02,059 --> 00:00:11,530
+Turn your transaction history into a clear picture of what you own, how your investments are allocated, and how your portfolio has performed.
+
+3
+00:00:12,180 --> 00:00:14,052
+Start in Input Transactions.
+
+4
+00:00:14,052 --> 00:00:20,605
+Upload a CSV with the ticker, date, buy or sell type, quantity, and price.
+
+5
+00:00:20,605 --> 00:00:26,690
+Here, we load the included sample data: trades in Apple, Microsoft, and Tesla.
+
+6
+00:00:27,340 --> 00:00:30,092
+You can also enter an individual trade.
+
+7
+00:00:30,092 --> 00:00:35,989
+Choose the date and transaction type, then enter the symbol, quantity, and price per share.
+
+8
+00:00:35,989 --> 00:00:39,920
+Review the details, then use Add transaction to save it.
+
+9
+00:00:40,570 --> 00:00:42,483
+Next, open Current Portfolio.
+
+10
+00:00:42,483 --> 00:00:52,046
+The summary shows the value of your remaining shares, their cost basis, unrealized gains, and profit already realized through sales.
+
+11
+00:00:52,046 --> 00:00:56,350
+The allocation chart shows how much each stock contributes.
+
+12
+00:00:57,000 --> 00:01:03,261
+The stock breakdown lets you compare quantities, average cost, prices, gains, and allocation.
+
+13
+00:01:03,261 --> 00:01:08,559
+This demo uses last transaction prices, with live pricing switched off.
+
+14
+00:01:08,559 --> 00:01:11,930
+The Price Source column makes that clear.
+
+15
+00:01:12,580 --> 00:01:18,716
+Historical Performance brings the full journey together: total investment, sales, remaining value, and total return.
+
+16
+00:01:18,716 --> 00:01:26,080
+X I R R is the annualized return that accounts for the timing of each buy and sell.
+
+17
+00:01:26,730 --> 00:01:31,509
+Finally, compare portfolio value with net money invested over time.
+
+18
+00:01:31,509 --> 00:01:35,809
+With live pricing off, this chart uses transaction prices.
+
+19
+00:01:35,809 --> 00:01:40,110
+Enable Yahoo Finance pricing for market data when available.
+
+20
+00:01:40,760 --> 00:01:48,200
+That is Stock Portfolio Analyzer: import your trades, understand your holdings, and track performance in one place.
+
+21
+00:01:48,200 --> 00:01:53,890
+Try the sample portfolio to explore the app before adding your own transactions.

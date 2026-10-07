@@ -1,0 +1,1 @@
+Welcome! Let's explore Stock Portfolio Analyzer together. We'll start with your trades, then discover what you own and how your portfolio has performed. Follow along with the sample data, and let's bring your portfolio into focus!

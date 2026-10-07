@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Review · Stock Portfolio Analyzer demo</title>
+<style>
+body{margin:0;background:#0c172a;color:#edf3ff;font:17px/1.6 system-ui,sans-serif}main{max-width:1120px;margin:40px auto;padding:0 24px}h1{font-size:30px;margin-bottom:4px}p{color:#b9c6dc}video{width:100%;max-height:75vh;background:#000;border-radius:12px}button,a{color:#b9dcff}button{border:1px solid #426185;border-radius:8px;background:#15253d;padding:10px 15px;font:inherit;cursor:pointer;margin:6px 8px 6px 0}small{display:block;color:#b9c6dc}#chapters{margin-top:16px}
+</style>
+<main>
+<h1>Stock Portfolio Analyzer</h1>
+<p>Narrated product walkthrough · Real app captures · Sample transactions · Last-trade prices</p>
+<video id="demo" controls preload="metadata" poster="assets/04-portfolio-framed.png"><source src="stock-portfolio-demo.mp4" type="video/mp4"></video>
+<div id="chapters"></div>
+<p>For our review: Does the opening explain the value clearly? Is the pace comfortable? Are any steps or terms confusing?</p>
+<small>Share feedback with a timestamp, such as “0:35 — slow this section down.”</small>
+<p><a href="stock-portfolio-demo.mp4" download>Download MP4</a> · <a href="narration.txt">Read narration</a> · <a href="stock-portfolio-demo.srt" download>Download subtitles</a></p>
+</main>
+<script>
+const video=document.getElementById('demo');
+Promise.resolve({"duration": 114.54, "scenes": [{"scene": "01-input", "title": "Your trades. Your portfolio. One clear view.", "start": 0, "duration": 12.18, "narration": "Welcome to Stock Portfolio Analyzer. Turn your transaction history into a clear picture of what you own, how your investments are allocated, and how your portfolio has performed."}, {"scene": "02-loaded", "title": "01  Import your transaction history", "start": 12.18, "duration": 15.16, "narration": "Start in Input Transactions. Upload a CSV with the ticker, date, buy or sell type, quantity, and price. Here, we load the included sample data: trades in Apple, Microsoft, and Tesla."}, {"scene": "03-manual", "title": "02  Add trades manually", "start": 27.34, "duration": 13.23, "narration": "You can also enter an individual trade. Choose the date and transaction type, then enter the symbol, quantity, and price per share. Review the details, then use Add transaction to save it."}, {"scene": "04-portfolio", "title": "03  See what you own today", "start": 40.57, "duration": 16.43, "narration": "Next, open Current Portfolio. The summary shows the value of your remaining shares, their cost basis, unrealized gains, and profit already realized through sales. The allocation chart shows how much each stock contributes."}, {"scene": "05-breakdown", "title": "04  Understand each holding", "start": 57.0, "duration": 15.58, "narration": "The stock breakdown lets you compare quantities, average cost, prices, gains, and allocation. This demo uses last transaction prices, with live pricing switched off. The Price Source column makes that clear."}, {"scene": "06-performance", "title": "05  Check your lifetime returns", "start": 72.58, "duration": 14.15, "narration": "Historical Performance brings the full journey together: total investment, sales, remaining value, and total return. X I R R is the annualized return that accounts for the timing of each buy and sell."}, {"scene": "07-trend", "title": "06  Follow value over time", "start": 86.73, "duration": 14.03, "narration": "Finally, compare portfolio value with net money invested over time. With live pricing off, this chart uses transaction prices. Enable Yahoo Finance pricing for market data when available."}, {"scene": "08-close", "title": "Import trades \u2192 Explore holdings \u2192 Track performance", "start": 100.76, "duration": 13.78, "narration": "That is Stock Portfolio Analyzer: import your trades, understand your holdings, and track performance in one place. Try the sample portfolio to explore the app before adding your own transactions."}]}).then(t=>{for(const scene of t.scenes){const b=document.createElement('button');b.textContent=`${Math.floor(scene.start/60)}:${String(Math.floor(scene.start%60)).padStart(2,'0')} · ${scene.title}`;b.onclick=()=>{video.currentTime=scene.start;video.play()};document.getElementById('chapters').appendChild(b)}}).catch(()=>{});
+</script>
+</html>

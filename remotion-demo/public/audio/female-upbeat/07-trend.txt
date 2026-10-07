@@ -1,0 +1,1 @@
+Let's explore the chart! One line shows portfolio value. The other shows the net money you've invested. Together, they help you follow your portfolio's progress over time. We're using transaction prices here. Enable Yahoo Finance pricing to explore market data when it's available.
