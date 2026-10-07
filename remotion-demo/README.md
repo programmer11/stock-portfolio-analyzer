@@ -15,7 +15,8 @@ npm run lint
 Open `StockPortfolioDemo` for the selected demo. The original comparison link
 `StockPortfolioDemoAmericanBackup` remains available with the same content.
 Audio is in `public/audio/american`. Edit `voiceover.json`, then run
-`../.venv/bin/python generate_voiceover.py` on macOS to regenerate it and update timing.
+`uv run python generate_voiceover.py` on macOS (it uses the built-in `say` command;
+run `uv sync --group demo` in the parent folder first) to regenerate it and update timing.
 
 Other narration variants are preserved in `public/audio/teacher` and
 `public/audio/female-upbeat`, with script and timing snapshots in `backups`.
@@ -35,8 +36,8 @@ On macOS versions older than 15, the bundled Remotion encoder may not work.
 Render an image sequence and assemble it with the parent app's FFmpeg instead:
 
 ```sh
-npx remotion render src/index.ts StockPortfolioDemo out/american-frames --sequence --image-format=jpeg --muted --browser-executable="/Applications/Google Chrome 2.app/Contents/MacOS/Google Chrome" --concurrency=4
-../.venv/bin/python encode_frames.py
+npx remotion render src/index.ts StockPortfolioDemo out/american-frames --sequence --image-format=jpeg --muted --browser-executable="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --concurrency=4
+uv run python encode_frames.py
 ```
 
 The fallback exports the full Remotion animation at 30 fps and pads each narration

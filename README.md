@@ -21,7 +21,13 @@ or open the [video player with chapters](demo/american-demo.html).
 The demo uses sample transactions and last-trade prices with live pricing off.
 
 The editable [Remotion project](remotion-demo/README.md) includes the selected narration
-and saved voice alternatives. To preview or regenerate the video:
+and saved voice alternatives. Previewing or regenerating the video needs Node.js 20+;
+the Python helper scripts in `demo/` and `remotion-demo/` need the optional `demo` dependencies:
+
+```bash
+uv sync --group demo                 # Pillow, Playwright, imageio-ffmpeg
+uv run playwright install chromium   # only for demo/capture.py
+```
 
 ```bash
 cd remotion-demo
